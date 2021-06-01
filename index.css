@@ -1,0 +1,214 @@
+/* resets*/
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+ font-family: 'Open Sans', sans-serif;
+ font-size: 16px;
+ line-height: 28px;
+ color: black;
+}
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 100%;
+    margin: 0px auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    grid-template-rows: 1fr 4fr 1.2fr 1.2fr;
+    grid-template-areas:"logo    logo    header"
+                        "main    main    img-box"
+                        "qoutes  qoutes  img-box"
+                        "btn1    btn2    img-box";
+}
+.logo{
+    grid-area:logo;
+    display: grid;
+    align-items: center;
+    background-color:rgb(78, 78, 78);
+    padding-left: 125px;
+}
+.logo a{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    
+}
+.main{
+    grid-area:main;
+    padding:0 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main h1{
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 700px;
+    margin-bottom: 40px;
+    max-width: 290px;
+}
+
+.qoutes{
+    background-color: rgb(175, 240, 245);
+    grid-area:qoutes;
+}
+.qoutes h2{
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 700;
+    padding-left:125px;
+    display: flex;
+    align-items: center;
+}
+.btn1{
+    grid-area:btn1;
+    background-color:grey;
+    
+}
+.btn2{
+    grid-area:btn2;
+   background-color: rgb(59, 57, 57);
+}
+.btn a{
+    color: white;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+}
+.btn{
+    transition: background-color .2s ease-in;
+}
+.btn :hover{
+    background-color: black;
+
+}
+.main h1{
+    animation-delay:.5s;
+}
+.main p{
+    animation-delay: 1s;
+}
+.pop_in{
+    animation:pop 2s cubic-bezier(.55,.09,.92,.02) forwards;
+    opacity: 0;
+}
+@keyframes pop{
+    from{
+   opacity: 0;
+   transform:translateX(-10px) scale(.8);
+    }
+     to{
+         opacity: 1;
+         transform: none;
+     }
+}
+header{
+    grid-area:header;
+    background-color: rgb(175, 240, 245);
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    align-items: center;
+}
+header ul{
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+display: flex;
+}
+header ul li {
+    padding: 20px;
+   
+}
+header ul li a{
+    padding-left: 30px 15px;
+    font-weight: 700;
+    color: black;
+    transition:color .2s ease-in;
+} 
+header ul li:hover a{
+    color:orange;
+}
+
+.img-box{
+     grid-area:img-box;
+     background-color:grey;
+     overflow: hidden;
+     background-image: url("./images/london.jpeg") no-repeat top center;
+    background-size: cover;
+    }
+.img-box img{
+    width: 100%;
+}
+.slide-in{
+    animation:slidein 2s ease forwards;
+    opacity:0;
+}
+@keyframes slidein{
+    0%{
+        opacity: 0;
+       transform: translateX(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+
+} 
+/*media query*/
+@media(max-width:767px) {
+  
+   .container{
+    height:auto;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 100px 80px 50vh auto auto 80px;
+     grid-template-areas:"logo    logo"
+                        "header header"
+                        "img-box img-box"
+                        "main    main"
+                        "qoutes  qoutes"
+                        "btn1    btn2";
+     }
+     .logo{
+         padding-left: 0px;
+        justify-content: center;
+     } 
+     .header{
+         padding-right: 0;
+         justify-content: center;
+     }
+     .main{
+         padding: 50px 24px;
+     }
+     .main h1{
+        font-size: 30px;
+        line-height: 40px;
+        font-weight: 700;
+        margin-bottom: 12px;
+     }
+     .qoutes{
+         padding: 20px 24px;
+     }
+     .qoutes h2{
+         line-height:  28px;
+         font-size: 20px;
+     }
+     .btn a{
+         font-size: 18px;
+     }
+}
+
+@media(min-width:765px) and (max-width:1024px){
+  .logo,.qoutes,.main{
+      padding-left: 25px;
+  }
+}
